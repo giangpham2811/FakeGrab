@@ -1,0 +1,28 @@
+targets:
+  $default:
+    builders:
+      json_serializable|json_serializable:
+        options:
+          explicit_to_json: false
+          include_if_null: true
+          create_factory: true
+          create_to_json: true
+        generate_for:
+          - "**/model/**.dart"
+          - "**/network/request/**.dart"
+          - "**/network/response/**.dart"
+      retrofit_generator|retrofit:
+        generate_for:
+          - "**/network/app_api.dart"
+      injectable_generator:injectable_builder:  
+        options:  
+          auto_register: true  
+          # auto registers any class with a name matches the given pattern
+          class_name_pattern:  
+            "Service$|Repository$|Bloc$"  
+            # auto registers any class inside a file with a  
+            # name matches the given pattern  
+          file_name_pattern: "_service$|_repository$|_bloc$"  
+      freezed|freezed:
+        generate_for:
+          - "**/abc/**.dart"
