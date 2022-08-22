@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "555611366952",
+    "firebase_url": "https://feat-authentication-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "feat-authentication",
+    "storage_bucket": "feat-authentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555611366952:android:c6673dd9db40c01be4f71d",
+        "android_client_info": {
+          "package_name": "com.flutter_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555611366952-3br2gaoi7dhg8a64artv2uefg6snpi6d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxXXgTVZkXbM34cJlRyMLfXXJ3Q2dLgPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555611366952-3br2gaoi7dhg8a64artv2uefg6snpi6d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
