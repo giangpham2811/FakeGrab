@@ -40,34 +40,33 @@ class SignInCubit extends Cubit<SignInState> {
 
   Future<void> signInByGoogle() async {
     emit(SignInLoading());
-    try {
-      await UserRepository.signInByGoogle().then((userCredential) {
+
+    await UserRepository.signInByGoogle().then(
+      (userCredential) {
         if (userCredential != null) {
           emit(SignInSuccess());
         } else {
           emit(SignInFailure(message: R.string.authenticate_failed));
         }
-      });
-      emit(SignInSuccess());
-    } catch (e) {
-      emit(SignInFailure(message: e.toString()));
-    }
+      },
+      onError: (error) {
+        emit(SignInFailure(message: R.string.authenticate_failed));
+      },
+    );
   }
 
   Future<void> signInByFacebook() async {
     emit(SignInLoading());
-    try {
-      await UserRepository.signInByFacebook().then((userCredential) {
-        if (userCredential != null) {
-          emit(SignInSuccess());
-        } else {
-          emit(SignInFailure(message: R.string.authenticate_failed));
-        }
-      });
-      emit(SignInSuccess());
-    } catch (e) {
-      emit(SignInFailure(message: e.toString()));
-    }
+
+    await UserRepository.signInByFacebook().then((userCredential) {
+      if (userCredential != null) {
+        emit(SignInSuccess());
+      } else {
+        emit(SignInFailure(message: R.string.authenticate_failed));
+      }
+    }, onError: (error) {
+      emit(SignInFailure(message: error.toString()));
+    });
   }
 
   void signInByEmail(String email, String password) async {
@@ -88,7 +87,6 @@ class SignInCubit extends Cubit<SignInState> {
       emit(SignInFailure(message: R.string.password_must_be_at_least_6_characters));
       return;
     }
-
     emit(SignInSuccess());
   }
 

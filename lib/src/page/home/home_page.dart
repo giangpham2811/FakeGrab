@@ -3,7 +3,7 @@ import 'package:app/src/base/base_page.dart';
 import 'package:app/src/page/authentication/authentication_cubit.dart';
 import 'package:app/src/page/home/home_cubit.dart';
 import 'package:app/src/page/home/home_state.dart';
-import 'package:app/src/page/login/login_page.dart';
+import 'package:app/src/page/sign_in/sign_in_page.dart';
 import 'package:app/src/widgets/button_widget.dart';
 import 'package:app/src/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class _HomePageState extends BaseState<HomePage> {
               Fluttertoast.showToast(msg: R.string.logout_success);
               AuthenticationCubit authCubit = BlocProvider.of<AuthenticationCubit>(context);
               authCubit.onLogout();
-              replaceScreen(const LoginPage());
+              replaceScreen(const SigninPage());
             }
             if (state is HomeFailure) {
               Fluttertoast.showToast(msg: state.error);
